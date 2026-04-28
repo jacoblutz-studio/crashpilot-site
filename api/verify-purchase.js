@@ -39,7 +39,7 @@ export default async function handler(req, res) {
     // Return download URL and customer info
     return res.status(200).json({
       success: true,
-      download_url: process.env.DMG_DOWNLOAD_URL || '/CrashPilot-v1.0-4e97ce626a28ff6a.dmg',
+      download_url: '/downloads/cp-02bae889a1eed00d9b6eb3d1/CrashPilot-v2.0.0.dmg',
       customer_email: session.customer_details?.email || '',
     });
     
