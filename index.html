@@ -203,9 +203,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .crash-boot {
-  width: min(100%, 380px);
+  width: min(100%, 390px);
   margin: 0 auto 22px;
-  padding: 20px 22px 18px;
+  min-height: 420px;
+  padding: 18px;
   border: 1px solid rgba(255,66,102,0.32);
   border-radius: 8px;
   background:
@@ -217,18 +218,62 @@ button, a { -webkit-tap-highlight-color: transparent; }
   box-shadow: 0 0 46px rgba(255,66,102,0.18), inset 0 0 0 1px rgba(255,255,255,0.04);
 }
 
+.boot-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 34px;
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.boot-brand {
+  color: var(--red);
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 2.4px;
+}
+
+.boot-subtitle {
+  color: var(--dim);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+.boot-lights {
+  display: flex;
+  gap: 5px;
+}
+
+.boot-lights span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+  animation: dotPulse 1.4s steps(2) infinite;
+}
+
+.boot-lights span:nth-child(3) {
+  background: var(--red);
+  box-shadow: 0 0 10px var(--red);
+}
+
 .boot-radar {
   position: relative;
-  width: 116px;
-  height: 116px;
-  margin: 0 auto 15px;
+  width: min(76vw, 238px);
+  height: min(76vw, 238px);
+  margin: 0 auto 14px;
   border-radius: 50%;
-  border: 1px solid rgba(255,66,102,0.55);
+  border: 1px solid rgba(32,230,122,0.34);
   background:
-    repeating-radial-gradient(circle, transparent 0 17px, rgba(255,66,102,0.2) 18px 19px, transparent 20px 35px),
+    radial-gradient(circle, #08120f 0 8%, transparent 9%),
+    repeating-radial-gradient(circle, transparent 0 28px, rgba(32,230,122,0.18) 29px 30px, transparent 31px 58px),
     linear-gradient(0deg, transparent 49.5%, rgba(32,230,122,0.25) 50%, transparent 50.5%),
     linear-gradient(90deg, transparent 49.5%, rgba(32,230,122,0.25) 50%, transparent 50.5%);
-  box-shadow: 0 0 32px rgba(255,66,102,0.26);
+  box-shadow: 0 0 32px rgba(32,230,122,0.14), inset 0 0 38px #000c;
   overflow: hidden;
 }
 
@@ -272,10 +317,78 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .boot-hit.two { left: 34%; top: 55%; animation-delay: 0.75s; }
 .boot-hit.three { left: 58%; top: 72%; animation-delay: 1.15s; background: var(--red); box-shadow: 0 0 14px rgba(255,66,102,0.8); }
 
+.boot-hit.four { left: 45%; top: 73%; width: 5px; height: 5px; animation-delay: 1.45s; background: var(--red); box-shadow: 0 0 14px rgba(255,66,102,0.8); }
+
+.boot-lock {
+  position: absolute;
+  inset: 43%;
+  border-radius: 50%;
+  border: 1px solid rgba(255,66,102,0.7);
+  background: rgba(255,66,102,0.18);
+  box-shadow: 0 0 22px rgba(255,66,102,0.44);
+}
+
+.boot-telemetry {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.telemetry-tile {
+  border: 1px solid var(--line);
+  background: #080811;
+  padding: 8px 7px;
+  min-width: 0;
+  text-align: left;
+}
+
+.telemetry-label {
+  color: var(--dim);
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.telemetry-value {
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 900;
+  margin-top: 4px;
+  letter-spacing: 1.1px;
+}
+
+.telemetry-tile.hot .telemetry-value { color: var(--red); }
+
+.boot-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.boot-status {
+  color: var(--green);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+}
+
+.boot-time {
+  color: var(--dim);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+}
+
 .boot-progress {
-  height: 7px;
+  height: 4px;
   border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 99px;
   overflow: hidden;
   background: #080813;
 }
@@ -747,8 +860,11 @@ h1 {
   .brand { font-size: 12px; }
   .nav-cta { padding: 8px 9px; font-size: 9px; }
   .hero { padding-left: 16px; padding-right: 16px; overflow: hidden; }
-  .crash-boot { width: min(100%, 320px); padding: 16px 18px 15px; }
-  .boot-radar { width: 100px; height: 100px; }
+  .crash-boot { width: min(100%, 330px); min-height: 386px; padding: 16px 18px 15px; }
+  .boot-radar { width: min(70vw, 210px); height: min(70vw, 210px); }
+  .boot-brand { font-size: 14px; }
+  .boot-telemetry { gap: 5px; }
+  .telemetry-tile { padding: 7px 6px; }
   h1 { font-size: 36px; line-height: 1; }
   .hero-sub { font-size: 22px; }
   .hero-note { max-width: 100%; font-size: 12px; }
@@ -786,10 +902,28 @@ h1 {
 
       <div class="hero-copy">
         <div class="crash-boot" aria-label="CrashPilot startup scan animation">
+          <div class="boot-top">
+            <div>
+              <div class="boot-brand">CRASHPILOT</div>
+              <div class="boot-subtitle">BLACK BOX STARTUP</div>
+            </div>
+            <div class="boot-lights" aria-hidden="true"><span></span><span></span><span></span></div>
+          </div>
           <div class="boot-radar" aria-hidden="true">
             <span class="boot-hit one"></span>
             <span class="boot-hit two"></span>
             <span class="boot-hit three"></span>
+            <span class="boot-hit four"></span>
+            <span class="boot-lock"></span>
+          </div>
+          <div class="boot-telemetry" aria-hidden="true">
+            <div class="telemetry-tile"><div class="telemetry-label">DAW BUS</div><div class="telemetry-value">ARMED</div></div>
+            <div class="telemetry-tile"><div class="telemetry-label">PLUGIN TRACE</div><div class="telemetry-value">SYNC</div></div>
+            <div class="telemetry-tile hot"><div class="telemetry-label">CRASH LOCK</div><div class="telemetry-value">HOT</div></div>
+          </div>
+          <div class="boot-status-row">
+            <div class="boot-status">RECOVERY READY</div>
+            <div class="boot-time">5.00 SEC</div>
           </div>
           <div class="boot-progress"><span></span></div>
           <div class="boot-steps"><span>logs</span><span>plugins</span><span>cockpit ready</span></div>
