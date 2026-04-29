@@ -285,9 +285,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
   width: 50%;
   height: 2px;
   transform-origin: left center;
+  transform: rotate(0deg);
   background: linear-gradient(90deg, var(--green), transparent);
   box-shadow: 0 0 15px rgba(32,230,122,0.7);
-  animation: radarSpin 5s linear infinite;
+  animation: radarSpin 3.8s linear infinite;
 }
 
 .boot-radar::after {
@@ -844,6 +845,11 @@ h1 {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+  .radar-sweep,
+  .boot-radar::before {
+    animation-duration: 3.8s !important;
+    animation-iteration-count: infinite !important;
   }
 }
 
