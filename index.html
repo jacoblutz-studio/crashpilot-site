@@ -166,18 +166,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   border-color: rgba(32,230,122,0.16);
 }
 
-.radar-sweep {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 42%;
-  height: 2px;
-  transform-origin: left center;
-  background: linear-gradient(90deg, var(--green), rgba(32,230,122,0));
-  box-shadow: 0 0 12px rgba(32,230,122,0.5);
-  animation: radarSpin 5s linear infinite;
-}
-
 .radar-dot {
   position: absolute;
   width: 8px;
@@ -846,7 +834,6 @@ h1 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-  .radar-sweep,
   .boot-radar::before {
     animation-duration: 3.8s !important;
     animation-iteration-count: infinite !important;
@@ -898,7 +885,6 @@ h1 {
     <section class="hero" aria-label="CrashPilot radar hero">
       <div class="hero-radar" aria-hidden="true">
         <div class="radar-card">
-          <div class="radar-sweep"></div>
           <div class="radar-dot green one"></div>
           <div class="radar-dot green two"></div>
           <div class="radar-dot three"></div>
@@ -936,8 +922,8 @@ h1 {
         </div>
         <div class="eyebrow"><span class="live-dot"></span> black box for your DAW</div>
         <h1>CrashPilot</h1>
-        <p class="hero-sub">Crash reports, risky plugins, and auto-save in <span>plain English</span>.</p>
-        <p class="hero-note">CrashPilot watches Logic, Pro Tools, Ableton, and the rest of your Mac studio. When something goes down, it tells you what happened, what plugin is suspicious, and what to do next.</p>
+        <p class="hero-sub">Crash reports in <span>plain English</span>. Risky plugins and auto-save right where you need them.</p>
+        <p class="hero-note">CrashPilot watches Logic, Pro Tools, Ableton, and the rest of your Mac studio. When something goes down, it explains what happened, flags suspicious plugins, and keeps a simple save shield within reach.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="https://buy.stripe.com/eVqeVccK7bR96FZ2G2fw400" target="_blank" rel="noopener">Download CrashPilot v2 - $49</a>
           <a class="btn btn-secondary" href="#intel">See the cockpit</a>
